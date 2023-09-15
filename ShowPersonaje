@@ -41,7 +41,7 @@ const ShowPersonaje = () => {
                         <td>{Personaje.image}</td>
                         <td>
                             <Link to={`/edit/${Personaje.id}`} className='btn btn-info'>Edit</Link>
-                            <button onClick={ ()=>deleteEmployee(Personaje.id)} className='btn btn-danger'>Delete</button>
+                            <button onClick={ ()=>deletePersonaje(Personaje.id)} className='btn btn-danger'>Delete</button>
                         </td>
                     </tr>
                 ))}                
