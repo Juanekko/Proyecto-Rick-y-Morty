@@ -1,0 +1,53 @@
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
+import {Link} from 'react-router-dom'
+const endpoint = 'https://rickandmortyapi.com'
+const ShowPersonaje = () => {
+    const [Personaje, setPersonaje] = useState([])
+    useEffect ( ()=> {
+        getAllPersonaje()
+    }, [])
+    const getAllPersonaje = async () => {
+        const response = await axios.get(`${endpoint}/Personaje`)
+        setPersonaje(response.data)
+    }
+    const deletePersonaje = async (id) => {
+       await axios.delete(`${endpoint}/personaje/${id}`)
+       getAllPersonaje()
+         
+    }
+  return (
+    <div>
+        <div className='d-grid gap-2'>
+            <Link to="/create" className='btn btn-success btn-lg mt-2 mb-2 text-white'>Create</Link>
+        </div>
+        <table className='table table-striped'>
+            <thead className='bg-primary text-white'>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Spicies</th>
+                    <th>Gender</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                { Personaje.map( (Personaje) => (
+                    <tr key={Personaje.id}>
+                        <td>{Personaje.name}</td>
+                        <td>{Personaje.status}</td>
+                        <td>{Personaje.spicies}</td>
+                        <td>{Personaje.gender}</td>
+                        <td>{Personaje.image}</td>
+                        <td>
+                            <Link to={`/edit/${Personaje.id}`} className='btn btn-info'>Edit</Link>
+                            <button onClick={ ()=>deleteEmployee(Personaje.id)} className='btn btn-danger'>Delete</button>
+                        </td>
+                    </tr>
+                ))}                
+            </tbody>
+        </table>
+    </div>
+  )
+}
+export default ShowEmployees
