@@ -28,6 +28,7 @@ const ShowPersonaje = () => {
                     <th>Status</th>
                     <th>Species</th>
                     <th>Gender</th>
+                    <th>Url</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@ const ShowPersonaje = () => {
                         <td>{Personaje.status}</td>
                         <td>{Personaje.spicies}</td>
                         <td>{Personaje.gender}</td>
+                        <td>{Personaje.url}</td>
                         <td>
                             <Link to={`/edit/${Personaje.id}`} className='btn btn-info'>Edit</Link>
                             <button onClick={ ()=>deletePersonaje(Personaje.id)} className='btn btn-danger'>Delete</button>
