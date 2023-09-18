@@ -10,11 +10,13 @@ const CreatePersonaje = () => {
     const [status, setStatus] = useState('')
     const [species, setSpecies] = useState('')
     const [gender, setGender] = useState('')
+    const [url, setUrl] = useState('')
+
 
 
     const store = async (e) => {
         e.preventDefault();
-        await axios.post(endpoint, {id: id, name: name, status: status, species: species, gender: gender})
+        await axios.post(endpoint, {id: id, name: name, status: status, species: species, gender: gender, url: url})
         navigate('/')
 
     }
@@ -72,15 +74,15 @@ const CreatePersonaje = () => {
                 />
             </div>
 
-           // <div className='mb-3'>
-                <label className='form-label'>Age</label>
+            <div className='mb-3'>
+                <label className='form-label'>Url</label>
                 <input 
-                    value={age} 
-                    onChange={ (e)=> setAge(e.target.value)}
+                    value={url} 
+                    onChange={ (e)=> setUrl(e.target.value)}
                     type='text'
                     className='form-control'
                 />
-            </div> *//
+            </div> 
 
             <button type='submit' className='btn btn-success'>Save</button>
         </form>
