@@ -50,4 +50,5 @@ const ShowPersonaje = () => {
     </div>
   )
 }
-export default ShowEmployees
+export default ShowPersonaje
+
