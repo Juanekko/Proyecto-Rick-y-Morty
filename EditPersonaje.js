@@ -7,6 +7,7 @@ const EditPersonaje = () => {
     const [status, setStatus] = useState('')
     const [species, setSpecies] = useState('')
     const [gender, setGender] = useState('')
+    const [url, setUrl] = useState('')
     const navigate = useNavigate()
     const {id} = useParams()
     const update = async (e) => {
@@ -66,6 +67,15 @@ const EditPersonaje = () => {
                 <input 
                     value={phone} 
                     onChange={ (e)=> setGender(e.target.value)}
+                    type='text'
+                    className='form-control'
+                />
+            </div>
+            <div className='mb-3'>
+                <label className='form-label'>Url</label>
+                <input 
+                    value={url} 
+                    onChange={ (e)=> setUrl(e.target.value)}
                     type='text'
                     className='form-control'
                 />
